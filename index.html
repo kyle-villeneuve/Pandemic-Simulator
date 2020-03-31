@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandemic Simulator</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="graph"></div>
+    <div
+      class="container h100 flex direction-column-reverse align-center justify-center"
+    >
+      <canvas class="canvas"></canvas>
+      <div class="flex justify-between align-center w100 py1">
+        <div class="col col-2">
+          <div class="actions">
+            <button class="actions__start">Start</button>
+            <button class="actions__stop" style="display:none;">Stop</button>
+            <button class="actions__reset">Reset</button>
+          </div>
+          <div class="settings flex">
+            <div class="col">
+              <label
+                >Immune (%)
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.5"
+                  data-percent="data-percent"
+                  name="IMMUNITY_RATIO"
+                  placeholder="1"
+                />
+              </label>
+              <label
+                >Transmission radius
+                <input
+                  type="number"
+                  min="0"
+                  max="700"
+                  step="0.5"
+                  name="TRANSMISSION_RADIUS"
+                  placeholder="15"
+                />
+              </label>
+            </div>
+            <div class="col">
+              <label
+                >Transmission (%)
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  data-percent="data-percent"
+                  name="TRANSMISSION_PROBABILITY"
+                  placeholder="1"
+                />
+              </label>
+              <label
+                >Starting population
+                <input
+                  type="number"
+                  min="1"
+                  max="5000"
+                  step="1"
+                  name="STARTING_POPULATION"
+                  placeholder="1000"
+                />
+              </label>
+            </div>
+            <div class="col">
+              <label
+                >Starting infections
+                <input
+                  type="number"
+                  min="0"
+                  max="5000"
+                  step="1"
+                  name="STARTING_INFECTIONS"
+                  placeholder="3"
+                />
+              </label>
+              <label
+                >Percent quarantined
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  data-percent="data-percent"
+                  name="SELF_QUARANTINED"
+                  placeholder="1"
+                />
+              </label>
+            </div>
+            <div class="col">
+              <label
+                >Death Rate
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  name="DEATH_RATE"
+                  placeholder="3"
+                />
+              </label>
+              <label
+                >Recovery Time (ticks)
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  data-percent="data-percent"
+                  name="RECOVERY_TIME"
+                  placeholder="2000"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <ul class="legend col col-1">
+          <li>
+            <div class="key key--white"></div>
+            <p>Healthy</p>
+          </li>
+          <li>
+            <div class="key key--red"></div>
+            <p>Infected</p>
+          </li>
+          <li>
+            <div class="key key--lime"></div>
+            <p>Immune</p>
+          </li>
+          <li>
+            <div class="key key--blue"></div>
+            <p>Self Quarantined</p>
+          </li>
+          <li>
+            <div class="key key--darkgreen"></div>
+            <p>Recovered</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
